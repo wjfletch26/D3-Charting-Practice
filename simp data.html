@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Learning D3</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <p> my name is <span class="name"></span></p>
+    <ul class="items">
+      <li>This is an item</li>
+      <li>This is an item</li>
+      <li>This is an item</li>
+      <li>This is an item</li>
+      <li>This is an item</li>
+    </ul>
+
+    <script>
+        var numArray = [12, 20, 33, 40, 55, 60, 75, 80, 90];
+
+        var name = 'Josh';
+
+
+         // how to display more data when you dont have enought li items
+    var li = d3.select("body")
+  .selectAll("li")
+  .data(numArray)
+    .text(function(d) { return 'this is item number ' +d });
+
+    // Enter…
+li.enter().append("li")
+    .text(function(d) { return 'this is item number ' +d });
+
+// Exit…
+li.exit().remove();
+
+d3.select(".name").text(name)
+
+
+        //this takes the numArray data and applies it to the text after return.
+    //   d3.selectAll(" .items li")
+    //     .data(numArray)
+    //     .text(function(d){
+    //         return 'this is item number ' +d})
+     
+        //this takes the numArray data and applies it to the font size
+    // d3.selectAll(" .items li")
+    //     .data(numArray)
+    //     .style('font-size', function(d){
+    //         return d+ 'px';
+    //     })      
+
+       
+
+    </script>
+</html>
